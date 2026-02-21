@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Airport Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<h2>Flight Duration Chart</h2>
+
+<canvas id="flightChart"></canvas>
+
+<script>
+const ctx = document.getElementById('flightChart').getContext('2d');
+
+new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: {{ labels|safe }},
+        datasets: [{
+            label: 'Flight Duration (Hours)',
+            data: {{ durations|safe }},
+            borderWidth: 1
+        }]
+    }
+});
+</script>
+
+</body>
+</html>
